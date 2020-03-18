@@ -1,0 +1,57 @@
+body {
+  background-color: gray;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.content-area {
+  margin: 30px;
+}
+.input-area {
+  margin: 25px;
+}
+.task-text {
+
+  height: 40px;
+}
+.hidden {
+  display: none;
+}
+.delete-icon-area {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+.delete-icon {
+  color: black;
+}
+.complete {
+  text-decoration: line-through;
+}
+button {
+  background: gray;
+  color: white;
+}
+button:hover {
+  background-color: darkgray;
+  color: white;
+}
+h2 {
+  
+  padding: 40px;
+  
+}
+.app-name {
+color: white;
+padding: 20px;
+font-size: 20px;
+}
+.nav-container {
+  margin: 0;
+  padding: 0;
+}
+.body-container {
+  background-color: white;
+  margin: 0;
+}
