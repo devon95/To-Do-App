@@ -1,26 +1,39 @@
+// class ListClass {
+//   constructor() {
+//     this.lists = JSON.parse(localStorage.getItem("Lists"));
+//     if (!this.lists) {
+//       this.lists = [{ list: "Work" }, { list: "School" }, { list: "Home" }];
+//     }
+//     this.loadLists();
+//     this.addEventListener();
+//   }
+//   addEventListener()
+
+// }
+
 class ToDoClass {
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem('TASKS'));
-    if(!this.tasks) {
-        this.tasks = [
-      { task: "Go to Grocery Shopping", isComplete: false },
-      { task: "Do Homework", isComplete: true },
-      { task: "Wash Car", isComplete: false }
-    ];
-}
+    this.tasks = JSON.parse(localStorage.getItem("TASKS"));
+    if (!this.tasks) {
+      this.tasks = [
+        { task: "Go to Grocery Shopping", isComplete: false },
+        { task: "Do Homework", isComplete: true },
+        { task: "Wash Car", isComplete: false }
+      ];
+    }
     this.loadTasks();
     this.addEventListener();
   }
   addEventListener() {
-      document.getElementById('addTask').addEventListener('keypress', event => {
-          if(event.keyCode === 13) {
-              this.addTask(event.target.value);
-              event.target.value = '';
-          }
-      });
+    document.getElementById("addTask").addEventListener("keypress", event => {
+      if (event.keyCode === 13) {
+        this.addTask(event.target.value);
+        event.target.value = "";
+      }
+    });
   }
   loadTasks() {
-    localStorage.setItem('TASKS', JSON.stringify(this.tasks));
+    localStorage.setItem("TASKS", JSON.stringify(this.tasks));
     let taskHtml = this.tasks.reduce(
       (html, task, index) => (html += this.generateTaskHtml(task, index)),
       ""
@@ -33,11 +46,11 @@ class ToDoClass {
     <div class="row">
       <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 checkbox">
         <label><input id="toggleTaskStatus" type="checkbox" onchange="toDo.toggleTaskStatus(${index})" value="" class="" ${
-      task.isComplete? "checked" : ""
+      task.isComplete ? "checked" : ""
     }></label>
       </div>
       <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text ${
-        task.isComplete? "complete" : ""
+        task.isComplete ? "complete" : ""
       }">
         ${task.task}
       </div>
