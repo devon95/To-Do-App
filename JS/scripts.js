@@ -48,7 +48,7 @@ class ListClass {
     target.value = "";
   }
   addList(list) {
-    let newTask = {
+    let newList = {
       list,
       isComplete: false
     };
@@ -148,7 +148,11 @@ class ToDoClass {
     }
   }
 }
-let toDo;
-window.addEventListener("load", () => {
-  toDo = new ToDoClass();
+// let toDo;
+// window.addEventListener("load", () => {
+//   toDo = new ToDoClass();
+// });
+let list;
+window.addEventListener('load', () => {
+  list = new ListClass
 });
