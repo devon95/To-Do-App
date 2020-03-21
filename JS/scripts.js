@@ -1,15 +1,73 @@
-// class ListClass {
-//   constructor() {
-//     this.lists = JSON.parse(localStorage.getItem("Lists"));
-//     if (!this.lists) {
-//       this.lists = [{ list: "Work" }, { list: "School" }, { list: "Home" }];
-//     }
-//     this.loadLists();
-//     this.addEventListener();
-//   }
-//   addEventListener()
+class ListClass {
+  constructor() {
+    this.lists = JSON.parse(localStorage.getItem("Lists"));
+    if (!this.lists) {
+      this.lists = [{ list: "Work" }, { list: "School" }, { list: "Home" }];
+    }
+    this.loadLists();
+    this.addEventListener();
+  }
+  addEventListener(){
+    document.getElementById("addList").addEventListener("keypress", event => {
+      if (event.keyCode === 13) {
+        this.addList(event.target.value);
+        event.target.value = "";
+      }
+    });
+  }
+  loadLists() {
+    localStorage.setItem("LISTS", JSON.stringify(this.lists));
+    let listHtml = this.lists.reduce(
+      (html, list, index) => (html += this.generateListHtml(list, index)),
+      ""
+    );
+    document.getElementById("listsList").innerHTML = listHtml;
+  }
+  generateListHtml(List, index) {
+    return `
+    <li class="list-group-item checkbox list-item">
+          <div class="row">
+            <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 list-text">
+              ${list.list}
+            </div>
+            <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 delete-icon-area">
+              <a class="" href="" onClick="List.deleteList(event, ${index})"><i id="deletelist" data-id="${index}" class="delete-icon glyphicon glyphicon-trash"></i></a>
+            </div>
+          </div>
+        </li>
+  `;
+  }
+  deleteTask(event, ListIndex) {
+    event.preventDefault();
+    this.List.splice(ListIndex, 1);
+    this.loadLists();
+  }
+  addListClick() {
+    let target = document.getElementById("addList");
+    this.addList(target.value);
+    target.value = "";
+  }
+  addList(list) {
+    let newTask = {
+      list,
+      isComplete: false
+    };
+    let parentDiv = document.getElementById("addList").parentElement;
+    if (task === "") {
+      parentDiv.classList.add("has-error");
+    } else {
+      parentDiv.classList.remove("has-error");
+      this.lists.push(newList);
+      this.loadLists();
+    }
+  }
+}
 
-// }
+
+
+
+
+
 
 class ToDoClass {
   constructor() {

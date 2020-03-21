@@ -23,39 +23,51 @@
     </nav>
 
     <!-- Side Bar -->
-    <div class="content-flex">
-      <div class="sidenav col-md-2 col-xs-2 col-sm-2 col-lg-2">
-        <a href="#about">About</a>
+    <div class="sidenav col-md-4 col-xs-2 col-sm-2 col-lg-2 col-xl-2 margin-top">
+      <input
+        type="text"
+        placeholder="New List"
+        class="form-control"
+        id="addList"
+      />
+      <div class="form-group col-md-1">
+        <button class="btn btn-add-list" onclick="">
+          +
+        </button>
       </div>
+      <ul class="list-group" id="listsList">
+        
+      </ul>
+    </div>
 
-      <!-- Task Container -->
-      <div class="container body-container">
-        <div class="content-area row body-container">
-          <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8">
-            <h2>Task List</h2>
-            <div class="row input-area">
-              <div class="col-md-1"></div>
-              <div class="form-group col-md-9">
-                <input
-                  type="text"
-                  placeholder="New Task"
-                  class="form-control"
-                  id="addTask"
-                />
-              </div>
-              <div class="form-group col-md-1">
-                <button class="btn btn-add-task" onclick="toDo.addTaskClick()">
-                  +
-                </button>
-              </div>
-              <div class="col-md-1"></div>
+    <!-- Task Container -->
+    <div class="container body-container center">
+      <div class="content-area row body-container">
+        <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10">
+          <h2>Task List</h2>
+          <div class="row input-area">
+            <div class="col-md-1"></div>
+            <div class="form-group col-md-9">
+              <input
+                type="text"
+                placeholder="New Task"
+                class="form-control"
+                id="addTask"
+              />
             </div>
-            <ul class="list-group" id="taskList"></ul>
+            <div class="form-group col-md-1">
+              <button class="btn btn-add-task" onclick="toDo.addTaskClick()">
+                +
+              </button>
+            </div>
+            <div class="col-md-1"></div>
           </div>
-          <div class="col-md-2 col-xs-2 col-lg-2 col-sm-2"></div>
+          <ul class="list-group" id="taskList"></ul>
         </div>
+        <div class="col-md-2 col-xs-2 col-lg-2 col-sm-2"></div>
       </div>
     </div>
+
     <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
