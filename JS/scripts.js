@@ -1,13 +1,13 @@
 class ListClass {
   constructor() {
-    this.lists = JSON.parse(localStorage.getItem("Lists"));
+    this.lists = JSON.parse(localStorage.getItem("LISTS"));
     if (!this.lists) {
       this.lists = [{ list: "Work" }, { list: "School" }, { list: "Home" }];
     }
     this.loadLists();
     this.addEventListener();
   }
-  addEventListener(){
+  addEventListener() {
     document.getElementById("addList").addEventListener("keypress", event => {
       if (event.keyCode === 13) {
         this.addList(event.target.value);
@@ -23,13 +23,13 @@ class ListClass {
     );
     document.getElementById("listsList").innerHTML = listHtml;
   }
-  generateListHtml(List, index) {
+  generateListHtml(list, index) {
     return `
     <li class="list-group-item checkbox list-item">
           <div class="row">
-            <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 list-text">
+            <button class="col-md-1 col-xs-1 col-lg-1 col-sm-1 list-text" onclick="">
               ${list.list}
-            </div>
+            </button>
             <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 delete-icon-area">
               <a class="" href="" onClick="List.deleteList(event, ${index})"><i id="deletelist" data-id="${index}" class="delete-icon glyphicon glyphicon-trash"></i></a>
             </div>
@@ -61,13 +61,8 @@ class ListClass {
       this.loadLists();
     }
   }
+  createToDo(listId) {}
 }
-
-
-
-
-
-
 
 class ToDoClass {
   constructor() {
@@ -104,11 +99,11 @@ class ToDoClass {
     <div class="row">
       <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 checkbox">
         <label><input id="toggleTaskStatus" type="checkbox" onchange="toDo.toggleTaskStatus(${index})" value="" class="" ${
-      task.isComplete ? "checked" : ""
+      task.isComplete? "checked" : ""
     }></label>
       </div>
       <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text ${
-        task.isComplete ? "complete" : ""
+        task.isComplete? "complete" : ""
       }">
         ${task.task}
       </div>
@@ -148,11 +143,11 @@ class ToDoClass {
     }
   }
 }
-// let toDo;
-// window.addEventListener("load", () => {
-//   toDo = new ToDoClass();
-// });
-let list;
-window.addEventListener('load', () => {
-  list = new ListClass
+let toDo;
+window.addEventListener("load", () => {
+  toDo = new ToDoClass();
 });
+// let list;
+// window.addEventListener("load", () => {
+//   list = new ListClass();
+// });
